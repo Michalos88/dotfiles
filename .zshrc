@@ -4,7 +4,18 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/.rvm/bin
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git osx rails node heroku)
+plugins=(
+  git
+  osx
+  rails
+  node
+  heroku
+  python
+  autopep8
+  colored-man-pages
+  dotenv
+  fancy-ctrl-z
+  gitignore)
 source $ZSH/oh-my-zsh.sh
 
 for file in ~/.{functions,aliases}; do
