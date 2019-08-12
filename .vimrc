@@ -255,4 +255,6 @@ function! ToggleMouse()
 endfunction
 nnoremap <leader>m :call ToggleMouse()<CR>
 
+" Map Clip Board to General Clip Board
+set clipboard=unnamed
 " call vundle#config#require(g:bundles)

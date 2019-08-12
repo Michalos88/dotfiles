@@ -1,6 +1,6 @@
 [user]
-  name = Basil Siddiqui
-  email = basil.siddiqui@gmail.com
+  name = Michal Lyskawinski
+  email = mscteam99@gmail.com
 
 [core]
   editor = vim
@@ -9,7 +9,7 @@
   ui = auto
 
 [github]
-  user = bsiddiqui
+  user = michalos88
 
 [alias]
 

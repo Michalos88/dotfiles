@@ -43,11 +43,6 @@ echo "installing some taps"
 brew install ag cmake ctags tmux vim node reattach-to-user-namespace caskroom/cask/brew-cask
 echo "done"
 
-# install some apps"
-echo "installing some apps"
-brew cask install google-chrome soundcleod iterm2 dropbox postman flux notion quip telegram spotify sublime-text stremio postico slack sketch
-echo "done"
-
 # install vundle
 echo "install vundle"
 mkdir -p ~/dotfiles/.vim/bundle
