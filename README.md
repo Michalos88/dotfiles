@@ -53,7 +53,7 @@ Using one of the following fonts is recommended: https://github.com/Lokaltog/pow
 * gs: git status
 * gi [TEMPLATENAME]: creates a gitignore file
 * more here [git-omzh](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git)
-### OSX Contorls
+### OSX Controls
 * ofd: Open the current directory in a Finder window
 * pfd: Return the path of the frontmost Finder window
 * pfs:	Return the current Finder selection
@@ -67,7 +67,8 @@ Using one of the following fonts is recommended: https://github.com/Lokaltog/pow
 * man-preview:	Open a specified man page in Preview app
 * showfiles:	Show hidden files
 
-### Python Plugin
+### Python
+* p [dirs]: run python
 * pyfind: find all .py files
 * pyclean [dirs]: Deletes byte-code and cache files from a list of directories or the current one
 * pygrep <text>: Looks for text in .py files
