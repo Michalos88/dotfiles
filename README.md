@@ -4,7 +4,7 @@
 
 clone this repository
 ```
-git clone https://github.com/bsiddiqui/dotfiles.git ~/dotfiles
+git clone https://github.com/Michalos88/dotfiles.git ~/dotfiles
 ```
 navigate into dotfiles directory
 ```
