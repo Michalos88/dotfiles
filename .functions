@@ -35,7 +35,7 @@ function dash() { open dash://"$1" }
 
 # shortcut for code directory
 function c () { cd ~/projects/$1 }
-function _c () { _files -W ~/code -/ }
+function _c () { _files -W ~/projects -/ }
 compdef _c c
 
 # compress video files
