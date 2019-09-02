@@ -77,9 +77,11 @@ ruby extconf.rb
 make
 echo "done"
 
+# install zsh
 install_zsh () {
   # Test to see if zshell is installed.  If it is:
   if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
+ ;q
     # Clone the oh-my-zsh repository from GitHub only if it isn't already present
     if [[ ! -d ~/.oh-my-zsh/ ]]; then
       echo "installing oh-my-zsh"
@@ -106,3 +108,10 @@ install_zsh () {
 }
 
 install_zsh
+
+# install powerline fonts
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
