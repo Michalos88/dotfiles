@@ -68,7 +68,8 @@ Using one of the following fonts is recommended: https://github.com/Lokaltog/pow
 * showfiles:	Show hidden files
 
 ### Python
-* p [dirs]: run python
+* py [dirs]: run python
+* pyrepo [dirs]: builds a python repository (git, virutalenv etc.)
 * pyfind: find all .py files
 * pyclean [dirs]: Deletes byte-code and cache files from a list of directories or the current one
 * pygrep <text>: Looks for text in .py files
