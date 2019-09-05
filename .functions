@@ -27,8 +27,26 @@ function get_git_branch () {
   echo `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 }
 
-# shortcut for python
-function p () { python "$1"}
+# shortcuts for python
+function py () {
+  if [ $# -eq 1 ]
+    then
+      python3 "$1"
+    else
+      python3
+  fi
+}
+function jnb () {jupyter notebook}
+function pyrepo () {
+  cdmkdir "$1"
+  git init
+  gi python > .gitignore
+  virtualenv venv
+  echo "source ./venv/bin/activate" > .env
+  source .env
+  git add .
+  git commit -m "Repo Init"
+}
 
 #shortcut to open documentation with dash
 function dash() { open dash://"$1" }
