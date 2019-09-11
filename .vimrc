@@ -39,9 +39,8 @@ Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-eunuch'
 Bundle 'wincent/Command-T'
 Bundle 'skywind3000/asyncrun.vim'
-
 " syntax files
-Bundle 'w0rp/ale'
+Bundle 'dense-analysis/ale'
 Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
