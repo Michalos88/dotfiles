@@ -27,7 +27,7 @@ function get_git_branch () {
   echo `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 }
 
-# shortcuts for python
+# py instead python
 function py () {
   if [ $# -eq 1 ]
     then
@@ -36,11 +36,15 @@ function py () {
       python3
   fi
 }
+
+# start jupyter notebook
 function jnb () {jupyter notebook}
+
+# create python repository
 function pyrepo () {
   cdmkdir "$1"
   git init
-  gi python > .gitignore
+  gi python,venv > .gitignore
   virtualenv venv
   echo "source ./venv/bin/activate" > .env
   source .env
