@@ -23,6 +23,9 @@ for file in ~/.{functions,aliases}; do
 done
 unset file
 
+# Turn on autocd
+setopt auto_cd
+
 # disable marking untracked files under VCS as dirty DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
