@@ -81,7 +81,7 @@ echo "done"
 install_zsh () {
   # Test to see if zshell is installed.  If it is:
   if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
- ;q
+
     # Clone the oh-my-zsh repository from GitHub only if it isn't already present
     if [[ ! -d ~/.oh-my-zsh/ ]]; then
       echo "installing oh-my-zsh"
