@@ -40,7 +40,7 @@ echo "done"
 
 # install some taps
 echo "installing some taps"
-brew install ag cmake ctags tmux vim node reattach-to-user-namespace caskroom/cask/brew-cask jupyter
+brew install ag cmake ctags tmux vim node reattach-to-user-namespace homebrew/cask-cask jupyter
 echo "done"
 
 # install some apps"
