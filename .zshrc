@@ -13,7 +13,6 @@ plugins=(
   python
   autopep8
   colored-man-pages
-  dotenv
   fancy-ctrl-z
   gitignore)
 source $ZSH/oh-my-zsh.sh
@@ -37,3 +36,6 @@ if [ -f '/Users/michallyskawinski/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/michallyskawinski/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/michallyskawinski/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="/usr/local/aws/bin:$PATH"
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi

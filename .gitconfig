@@ -19,3 +19,6 @@
   branch = auto
   interactive = auto
   grep = auto
+[credential]
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
