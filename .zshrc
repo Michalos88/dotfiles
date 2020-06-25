@@ -9,12 +9,12 @@ plugins=(
   osx
   rails
   node
-  heroku
   python
-  autopep8
   colored-man-pages
   fancy-ctrl-z
-  gitignore)
+  gitignore,
+  kubectl,
+)
 source $ZSH/oh-my-zsh.sh
 
 for file in ~/.{functions,aliases}; do
@@ -37,5 +37,10 @@ if [ -f '/Users/michallyskawinski/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/michallyskawinski/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/michallyskawinski/google-cloud-sdk/completion.zsh.inc'; fi
 
-export PATH="/usr/local/aws/bin:$PATH"
+# AWS-cli autocomplete
+export PATH="/usr/local/bin/aws_completer:$PATH"
+autoload bashcompinit && bashcompinit
+complete -C '/usr/local/aws-cli/aws_completer' aws
+
+# Kubectl
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
