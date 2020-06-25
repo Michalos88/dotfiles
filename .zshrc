@@ -12,8 +12,8 @@ plugins=(
   python
   colored-man-pages
   fancy-ctrl-z
-  gitignore,
-  kubectl,
+  gitignore
+  kubectl
 )
 source $ZSH/oh-my-zsh.sh
 
