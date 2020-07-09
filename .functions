@@ -38,7 +38,35 @@ function py () {
 }
 
 # start jupyter notebook
-function jnb () {jupyter notebook}
+function jnb () {
+  if [[ $1 = "add" ]]
+  then
+    if [[ $# -ne 2 ]] || [[ $# -gt 2 ]]
+    then
+      echo "You just need to specify kernel name"
+    else
+      python3 -m ipykernel install --user --name="$2"
+    fi
+  elif [[ $1 = "rm" ]]
+  then
+    if [[ $# -ne 2 ]] || [[ $# -gt 2 ]]
+    then
+      echo "You just need to specify kernel name"
+    else
+      jupyter kernelspec uninstall "$2"
+    fi
+  else
+    jupyter notebook
+  fi
+}
+
+function jnb_add_venv () {
+  python3 -m ipykernel install --user --name="$1"
+}
+
+function jnb_rm_venv () {
+  jupyter kernelspec uninstall "$1"
+}
 
 # create python repository
 function pyrepo () {
