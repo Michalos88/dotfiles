@@ -11,7 +11,7 @@ dir=~/dotfiles
 olddir=~/dotfiles_old
 # list of files/folders to symlink in homedir
 files=".tmux.conf .zshrc .vimrc .aliases .functions .gitconfig .gitignore .gemrc .ackrc"
-
+platform=$(uname)
 ##########
 
 # create dotfiles_old in homedir
@@ -33,20 +33,33 @@ for file in $files; do
 done
 echo "done"
 
-# install homebrew
-echo "installing homebrew"
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-echo "done"
+install_osx_apps () {
+  # install homebrew
+  echo "installing homebrew"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo "done"
 
-# install some taps
-echo "installing some taps"
-brew install ag cmake ctags tmux vim node reattach-to-user-namespace homebrew/cask-cask jupyter
-echo "done"
+  # install some taps
+  echo "installing some taps"
+  brew install ag cmake ctags tmux vim node reattach-to-user-namespace homebrew/cask-cask jupyter
+  echo "done"
 
-# install some apps"
-echo "installing some apps"
-brew cask install google-chrome iterm2 postman flux sublime-text slack dash
-echo "done"
+  # install some apps"
+  echo "installing some apps"
+  brew cask install google-chrome iterm2 postman flux sublime-text slack dash
+  echo "done"
+}
+
+install_linux_apps (){
+  sudo apt-get install -y silversearcher-ag cmake exuberant-ctags tmux vim nodejs npm jupyter
+  sudo apt install -y python3-pip
+}
+
+if [[ $platform == 'Linux' ]]; then
+  install_linux_apps
+elif [[ $platform == 'Darwin' ]]; then
+  install_osx_apps
+fi
 
 # install vundle
 echo "install vundle"
