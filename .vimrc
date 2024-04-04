@@ -15,7 +15,6 @@ Bundle 'brendonrapp/smyck-vim'
 
 " plugins
 Bundle 'rking/ag.vim'
-" Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/tpope-vim-abolish'
 Bundle 'tpope/vim-fugitive'
@@ -24,7 +23,6 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tomtom/tcomment_vim'
-" Bundle 'vim-scripts/trailing-whitespace'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'michaeljsmith/vim-indent-object'
@@ -34,7 +32,6 @@ Bundle 'godlygeek/tabular'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'ervandew/supertab'
-" Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-eunuch'
 Bundle 'wincent/Command-T'
@@ -45,7 +42,6 @@ Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-markdown'
-Bundle 'voithos/vim-python-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
@@ -65,7 +61,6 @@ vnoremap <leader>c :TComment<CR>
 vnoremap <leader>C :TCommentBlock<CR>
 nnoremap <leader>nt :tabnew<CR>:CtrlP<CR>
 nnoremap <leader>l :NERDTreeTabsToggle<CR>
-nnoremap <leader>k :CheckSyntax<CR>
 nnoremap <leader>o :CtrlP<CR>
 nnoremap <leader>p :set invpaste<CR>
 nnoremap <leader>t :tabnew<CR>
@@ -78,13 +73,14 @@ nnoremap <leader>tgt :set cursorcolumn! cursorline!<CR>
 nnoremap <leader>RC :.-1read ~/code/snippets/container.js<CR>G<ESC>dd
 nnoremap <leader>Rc :.-1read ~/code/snippets/component.js<CR>G<ESC>dd
 
-" checksyntax config
-let g:checksyntax#auto_mode = 0
-
 " use standard javascript syntax checking
 let g:ale_linters = {
       \   'javascript': ['standard'],
+      \   'python': ['ruff']
       \}
+let g:ale_fixers = {
+\       "python": ["black", "ruff"],
+\}
 let g:ale_sign_error = '●'
 let g:ale_sign_error = '.'
 let g:ale_echo_msg_error_str = 'E'
@@ -106,15 +102,6 @@ let g:airline#extensions#ale#enabled = 1
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
-
-" ctrlp config
-" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-" let g:ctrlp_custom_ignore = {
-"   \ 'dir':  '\.git$\|\.yardoc\|node_modules\|dist\|log\|tmp$',
-"   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
-"   \ }
-" ag is fast enough that ctrlp doesn't need to cache
-" let g:ctrlp_use_caching = 0
 
 " command-t config
 let g:CommandTTraverseSCM = 'pwd'

@@ -36,22 +36,28 @@ echo "done"
 install_osx_apps () {
   # install homebrew
   echo "installing homebrew"
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo "done"
 
   # install some taps
   echo "installing some taps"
-  brew install ag cmake ctags tmux vim node reattach-to-user-namespace homebrew/cask-cask jupyter noti
+  taps="ag cmake ctags tmux vim node reattach-to-user-namespace wget jupyter noti ruff"
+  for tap in $taps; do
+    brew install $tap
+  done
   echo "done"
 
   # install some apps"
   echo "installing some apps"
-  brew cask install google-chrome iterm2 postman flux sublime-text slack dash
+  apps="google-chrome iterm2 postman sublime-text slack"
+  for app in $apps; do
+    brew install $app
+  done
   echo "done"
 }
 
 install_linux_apps (){
-  sudo apt-get install -y silversearcher-ag cmake exuberant-ctags tmux vim nodejs npm jupyter
+  sudo apt-get install -y silversearcher-ag cmake exuberant-ctags tmux vim nodejs npm
   sudo apt install -y python3-pip
 }
 
@@ -98,7 +104,7 @@ install_zsh () {
     # Clone the oh-my-zsh repository from GitHub only if it isn't already present
     if [[ ! -d ~/.oh-my-zsh/ ]]; then
       echo "installing oh-my-zsh"
-      git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       echo "done"
     fi
     # Set the default shell to zsh if it isn't currently set to zsh
