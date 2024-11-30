@@ -2,54 +2,52 @@
 set encoding=utf-8
 set nocompatible
 
-" vundle
-filetype off
-set rtp+=~/dotfiles/.vim/bundle/Vundle.vim
-call vundle#begin()
+" package manager
+call plug#begin()
 
-" let vundle manage vundle
-Bundle 'gmarik/Vundle.vim'
+" core plugins
+Plug 'tpope/tpope-vim-abolish'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 
-" color schemes
-Bundle 'brendonrapp/smyck-vim'
+Plug 'rking/ag.vim'
+Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tomtom/tcomment_vim'
+Plug 'vim-scripts/taglist.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'raimondi/delimitMate'
+Plug 'gregsexton/gitv'
+Plug 'godlygeek/tabular'
+Plug 'Valloric/YouCompleteMe'
+Plug 'marijnh/tern_for_vim'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-eunuch'
+Plug 'wincent/Command-T'
+Plug 'skywind3000/asyncrun.vim'
 
-" plugins
-Bundle 'rking/ag.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/tpope-vim-abolish'
-Bundle 'tpope/vim-fugitive'
-Bundle 'jistr/vim-nerdtree-tabs'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'raimondi/delimitMate'
-Bundle 'gregsexton/gitv'
-Bundle 'godlygeek/tabular'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'marijnh/tern_for_vim'
-Bundle 'honza/vim-snippets'
-Bundle 'tpope/vim-eunuch'
-Bundle 'wincent/Command-T'
-Bundle 'skywind3000/asyncrun.vim'
+" color scheme
+Plug 'brendonrapp/smyck-vim'
+
 " syntax files
-Bundle 'dense-analysis/ale'
-Bundle 'vim-scripts/JavaScript-Indent'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-markdown'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-haml'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'wavded/vim-stylus'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'groenewege/vim-less'
-call vundle#end()
+Plug 'dense-analysis/ale'
+Plug 'vim-scripts/JavaScript-Indent'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-markdown'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-haml'
+Plug 'digitaltoad/vim-jade'
+Plug 'wavded/vim-stylus'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'groenewege/vim-less'
+
+call plug#end()
 
 " shortcuts to common commands
 let mapleader = ","

@@ -67,33 +67,34 @@ elif [[ $platform == 'Darwin' ]]; then
   install_osx_apps
 fi
 
-# install vundle
-echo "install vundle"
-mkdir -p ~/dotfiles/.vim/bundle
-git clone https://github.com/gmarik/Vundle.vim.git ~/dotfiles/.vim/bundle/Vundle.vim
+# install vim-plug
+echo "installing vim-plug"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+mkdir -p ~/dotfiles/.vim
 ln -s ~/dotfiles/.vim ~/.vim
 echo "done"
 
-# install vim bundles
-echo "installing vim bundles"
-vim +BundleInstall +qall
-echo "done"
-
 # compile YCM
-echo "compiling youcompleteme"
-cd ~/dotfiles/.vim/bundle/YouCompleteMe && python3 ./install.py
+echo "compiling YouCompleteMe"
+cd ~/dotfiles/.vim/plugged/YouCompleteMe && python3 ./install.py
 echo "done"
 
 # setup tern server
 echo "setting up tern server"
-cd ~/.vim/bundle/tern_for_vim && npm install
+cd ~/.vim/plugged/tern_for_vim && npm install
 echo "done"
 
 # setup command-t
 echo "setting up command-t"
-cd ~/.vim/bundle/Command-T/ruby/command-t/ext/command-t
+cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t
 ruby extconf.rb
 make
+echo "done"
+
+# install vim plugins
+echo "installing vim plugins"
+vim +PlugInstall +qall
 echo "done"
 
 # install zsh
