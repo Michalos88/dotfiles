@@ -19,7 +19,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/tpope-vim-abolish'
 Bundle 'tpope/vim-fugitive'
 Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tomtom/tcomment_vim'
@@ -31,7 +32,6 @@ Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'marijnh/tern_for_vim'
-Bundle 'ervandew/supertab'
 Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-eunuch'
 Bundle 'wincent/Command-T'
@@ -78,9 +78,6 @@ let g:ale_linters = {
       \   'javascript': ['standard'],
       \   'python': ['ruff']
       \}
-let g:ale_fixers = {
-\       "python": ["black", "ruff"],
-\}
 let g:ale_sign_error = '●'
 let g:ale_sign_error = '.'
 let g:ale_echo_msg_error_str = 'E'
