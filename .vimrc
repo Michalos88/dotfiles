@@ -10,8 +10,8 @@ Plug 'tpope/tpope-vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
 
-Plug 'rking/ag.vim'
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline'
@@ -26,9 +26,9 @@ Plug 'godlygeek/tabular'
 Plug 'Valloric/YouCompleteMe'
 Plug 'marijnh/tern_for_vim'
 Plug 'honza/vim-snippets'
-Plug 'tpope/vim-eunuch'
-Plug 'wincent/Command-T'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " color scheme
 Plug 'brendonrapp/smyck-vim'
@@ -98,19 +98,13 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
-" command-t config
-let g:CommandTTraverseSCM = 'pwd'
-let g:CommandTCancelMap=['<ESC>', '<C-c>']
-let g:CommandTHighlightColor= 'CursorLine'
-let g:CommandTCursorColor= 'Constant'
-let g:CommandTCharMatchedColor= 'Constant'
-set wildignore+=*.DS_Store,.git,node_modules,Pods,android
-nnoremap <C-p> <Esc>:CommandT<CR>
-
 " use ag over grep
 set grepprg=ag\ --nogroup\ --nocolor
 
-" bind K to grep word under cursor
+" FZF (replacement for CtrlP/Command-T)
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>h :History<CR>" bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " syntax highlighting and auto-indentation
