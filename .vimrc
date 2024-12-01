@@ -51,7 +51,7 @@ call plug#end()
 " shortcuts to common commands
 let mapleader = ","
 nnoremap <leader>a :Ag
-nnoremap <leader>b :TlistToggle<CR>
+nnoremap <leader>o :TlistToggle<CR>
 nnoremap <leader>c :TComment<CR>
 nnoremap <leader>C :TCommentBlock<CR>
 vnoremap <leader>c :TComment<CR>
@@ -95,7 +95,9 @@ set grepprg=ag\ --nogroup\ --nocolor
 " FZF (replacement for CtrlP/Command-T)
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>h :History<CR>" bind K to grep word under cursor
+nnoremap <leader>h :History<CR>
+
+" bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " syntax highlighting and auto-indentation
