@@ -25,7 +25,6 @@ Plug 'gregsexton/gitv'
 Plug 'godlygeek/tabular'
 Plug 'Valloric/YouCompleteMe'
 Plug 'marijnh/tern_for_vim'
-Plug 'honza/vim-snippets'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -59,7 +58,6 @@ vnoremap <leader>c :TComment<CR>
 vnoremap <leader>C :TCommentBlock<CR>
 nnoremap <leader>nt :tabnew<CR>:CtrlP<CR>
 nnoremap <leader>l :NERDTreeTabsToggle<CR>
-nnoremap <leader>o :CtrlP<CR>
 nnoremap <leader>p :set invpaste<CR>
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>s :vsplit<CR>
@@ -68,8 +66,6 @@ nnoremap <leader>w :tabclose<CR>
 nnoremap <leader>ed :tabnew ~/.vimrc<cr>
 nnoremap <leader>src :source ~/.vimrc<cr>
 nnoremap <leader>tgt :set cursorcolumn! cursorline!<CR>
-nnoremap <leader>RC :.-1read ~/code/snippets/container.js<CR>G<ESC>dd
-nnoremap <leader>Rc :.-1read ~/code/snippets/component.js<CR>G<ESC>dd
 
 " use standard javascript syntax checking
 let g:ale_linters = {
@@ -92,11 +88,6 @@ let g:Tlist_Use_Right_Window = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
-
-" snippet config
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 " use ag over grep
 set grepprg=ag\ --nogroup\ --nocolor
