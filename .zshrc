@@ -1,12 +1,11 @@
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/.rvm/bin
+# Update PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$HOME/bin:$PATH
 
-
-# Path to your oh-my-zsh configuration.
+# Oh My Zsh configuration
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 plugins=(
   git
-  osx
   rails
   node
   python
@@ -17,30 +16,54 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
+# Source custom functions and aliases if available
 for file in ~/.{functions,aliases}; do
-    [ -r "$file" ] && source "$file"
+  [ -r "$file" ] && source "$file"
 done
 unset file
 
-# Turn on autocd
+# Enable autocd
 setopt auto_cd
 
-# disable marking untracked files under VCS as dirty DISABLE_UNTRACKED_FILES_DIRTY="true"
+# Disable marking untracked files under VCS as dirty
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# RVM setup
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# Fastlane setup
 export PATH="$HOME/.fastlane/bin:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/michallyskawinski/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/michallyskawinski/google-cloud-sdk/path.zsh.inc'; fi
+# Google Cloud SDK
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
+  source "$HOME/google-cloud-sdk/path.zsh.inc"
+fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
+  source "$HOME/google-cloud-sdk/completion.zsh.inc"
+fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/michallyskawinski/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/michallyskawinski/google-cloud-sdk/completion.zsh.inc'; fi
-
-# AWS-cli autocomplete
-export PATH="/usr/local/bin/aws_completer:$PATH"
+# AWS CLI autocomplete
 autoload bashcompinit && bashcompinit
-complete -C '/usr/local/aws-cli/aws_completer' aws
+complete -C 'aws_completer' aws
 
-# Kubectl
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+# Kubectl autocomplete
+if command -v kubectl &>/dev/null; then
+  source <(kubectl completion zsh)
+fi
+
+# NVM setup
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" # Load NVM
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion" # Load NVM bash_completion
+
+# Conda initialize
+# !! Contents within this block are managed by 'conda init' !!
+if command -v conda &>/dev/null; then
+  eval "$(conda shell.zsh hook)"
+else
+  if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+    source "$HOME/miniconda3/etc/profile.d/conda.sh"
+  elif [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+    source "$HOME/anaconda3/etc/profile.d/conda.sh"
+  fi
+fi
