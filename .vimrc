@@ -28,23 +28,13 @@ Plug 'marijnh/tern_for_vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'dense-analysis/ale'
 
 " color scheme
 Plug 'brendonrapp/smyck-vim'
 
-" syntax files
-Plug 'dense-analysis/ale'
-Plug 'vim-scripts/JavaScript-Indent'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-markdown'
-Plug 'kchmck/vim-coffee-script'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-haml'
-Plug 'digitaltoad/vim-jade'
-Plug 'wavded/vim-stylus'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'groenewege/vim-less'
+" syntax
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -225,4 +215,3 @@ nnoremap <leader>m :call ToggleMouse()<CR>
 
 " Map Clip Board to General Clip Board
 set clipboard=unnamed
-" call vundle#config#require(g:bundles)
