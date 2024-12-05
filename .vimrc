@@ -23,11 +23,10 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'raimondi/delimitMate'
 Plug 'gregsexton/gitv'
 Plug 'godlygeek/tabular'
-Plug 'Valloric/YouCompleteMe'
-Plug 'marijnh/tern_for_vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Better than YCM
 Plug 'dense-analysis/ale'
 
 " color scheme
@@ -83,7 +82,7 @@ let g:airline#extensions#ale#enabled = 1
 set grepprg=ag\ --nogroup\ --nocolor
 
 " FZF (replacement for CtrlP/Command-T)
-nnoremap <C-p> :Files<CR>
+nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>h :History<CR>
 

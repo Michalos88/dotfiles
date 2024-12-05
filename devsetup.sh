@@ -75,27 +75,13 @@ mkdir -p ~/dotfiles/.vim
 ln -s ~/dotfiles/.vim ~/.vim
 echo "done"
 
-# compile YCM
-echo "compiling YouCompleteMe"
-cd ~/dotfiles/.vim/plugged/YouCompleteMe && python3 ./install.py
-echo "done"
-
-# setup tern server
-echo "setting up tern server"
-cd ~/.vim/plugged/tern_for_vim && npm install
-echo "done"
-
-# setup command-t
-echo "setting up command-t"
-cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t
-ruby extconf.rb
-make
-echo "done"
-
 # install vim plugins
 echo "installing vim plugins"
 vim +PlugInstall +qall
 echo "done"
+
+# install coc extensions
+vim -c 'CocInstall -sync coc-pyright coc-json|q'
 
 # install zsh
 install_zsh () {
