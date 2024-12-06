@@ -22,11 +22,6 @@ function trash () {
   IFS=$temp_ifs
 }
 
-# git functions
-function get_git_branch () {
-  echo `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-}
-
 # py instead python
 function py() {
     local python_cmd
