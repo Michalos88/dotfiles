@@ -22,75 +22,58 @@ function trash () {
   IFS=$temp_ifs
 }
 
-# git functions
-function get_git_branch () {
-  echo `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-}
-
 # py instead python
-function py () {
-  if [ $# -eq 1 ]
-    then
-      python3 "$1"
-    else
-      python3
-  fi
-}
+function py() {
+    local python_cmd
 
-# start jupyter notebook
-function jnb () {
-  if [[ $1 = "add" ]]
-  then
-    if [[ $# -ne 2 ]] || [[ $# -gt 2 ]]
-    then
-      echo "You just need to specify kernel name"
+    # Check for python3 command availability
+    if command -v python3 &>/dev/null; then
+        python_cmd="python3"
+    elif command -v python &>/dev/null; then
+        python_cmd="python"
     else
-      python3 -m ipykernel install --user --name="$2"
+        echo "Error: Python is not installed"
+        return 1
     fi
-  elif [[ $1 = "rm" ]]
-  then
-    if [[ $# -ne 2 ]] || [[ $# -gt 2 ]]
-    then
-      echo "You just need to specify kernel name"
+
+    if [ $# -eq 1 ]; then
+        if [ -f "$1" ]; then
+            $python_cmd "$1"
+        else
+            echo "Error: File '$1' not found"
+            return 1
+        fi
     else
-      jupyter kernelspec uninstall "$2"
+        $python_cmd
     fi
-  else
-    jupyter notebook
-  fi
 }
 
-function jnb_add_venv () {
-  python3 -m ipykernel install --user --name="$1"
-}
+# shortcuts for jupyter notebook
+function jnb() {
+    local usage="Usage: jnb [add|rm kernel_name]"
 
-function jnb_rm_venv () {
-  jupyter kernelspec uninstall "$1"
+    if [ $# -eq 0 ]; then
+        jupyter notebook
+        return
+    elif [ "$1" = "add" ]; then
+        if [ $# -ne 2 ]; then
+            echo "$usage"
+            return 1
+        fi
+        python3 -m ipykernel install --user --name="$2" || echo "Failed to add kernel: $2"
+    elif [ "$1" = "rm" ]; then
+        if [ $# -ne 2 ]; then
+            echo "$usage"
+            return 1
+        fi
+        jupyter kernelspec uninstall "$2" || echo "Failed to remove kernel: $2"
+    else
+        echo "$usage"
+        return 1
+    fi
 }
-
-# create python repository
-function pyrepo () {
-  cdmkdir "$1"
-  git init
-  gi python,venv > .gitignore
-  virtualenv venv
-  echo "source ./venv/bin/activate" > .env
-  source .env
-  git add .
-  git commit -m "Repo Init"
-}
-
-#shortcut to open documentation with dash
-function dash() { open dash://"$1" }
 
 # shortcut for code directory
-function c () { cd ~/projects/$1 }
-function _c () { _files -W ~/projects -/ }
+function c () { cd ~/code/$1 }
+function _c () { _files -W ~/code -/ }
 compdef _c c
-
-# compress video files
-compressMp4 () {
-  for f; do
-    ffmpeg -y -i "$f" -vcodec h264 -preset ultrafast -pix_fmt yuv420p -movflags faststart "${f%.*}-compressed.mp4"
-  done
-}
