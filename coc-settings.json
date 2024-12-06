@@ -1,0 +1,11 @@
+{
+  "python.analysis.typeCheckingMode": "basic",
+  "python.formatting.provider": "black",
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.parameterTypes": false,
+  "diagnostic.errorSign": "E",
+  "diagnostic.warningSign": "W",
+  "diagnostic.infoSign": "I",
+  "diagnostic.hintSign": "H"
+}

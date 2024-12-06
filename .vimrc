@@ -27,7 +27,6 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Better than YCM
-Plug 'dense-analysis/ale'
 
 " color scheme
 Plug 'brendonrapp/smyck-vim'
@@ -55,20 +54,6 @@ nnoremap <leader>w :tabclose<CR>
 nnoremap <leader>ed :tabnew ~/.vimrc<cr>
 nnoremap <leader>src :source ~/.vimrc<cr>
 nnoremap <leader>tgt :set cursorcolumn! cursorline!<CR>
-
-" use standard javascript syntax checking
-let g:ale_linters = {
-      \   'javascript': ['standard'],
-      \   'python': ['ruff']
-      \}
-let g:ale_sign_error = '●'
-let g:ale_sign_error = '.'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_lint_on_text_changed = 'never'
-nmap <silent> <C-b> <Plug>(ale_previous_wrap)
-nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
 " taglist config
 let g:Tlist_Use_Right_Window = 1

@@ -41,7 +41,7 @@ install_osx_apps () {
 
   # install some taps
   echo "installing some taps"
-  taps="ag cmake ctags tmux vim node reattach-to-user-namespace wget jupyter noti ruff"
+  taps="ag cmake ctags tmux vim node reattach-to-user-namespace wget jupyter noti ruff-lsp"
   for tap in $taps; do
     brew install $tap
   done
@@ -81,7 +81,8 @@ vim +PlugInstall +qall
 echo "done"
 
 # install coc extensions
-vim -c 'CocInstall -sync coc-pyright coc-json|q'
+vim -c 'CocInstall -sync coc-pyright coc-json @yaegassy/coc-ruff|q'
+ln -s ~/dotfiles/coc-settings.json ~/.vim/coc-settings.json
 
 # install zsh
 install_zsh () {
