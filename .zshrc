@@ -13,6 +13,7 @@ plugins=(
   fancy-ctrl-z
   gitignore
   kubectl
+  zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
 

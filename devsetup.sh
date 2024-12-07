@@ -116,6 +116,9 @@ install_zsh () {
 
 install_zsh
 
+# install zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 # install powerline fonts
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
