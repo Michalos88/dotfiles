@@ -2,5 +2,6 @@ alias zshconfig='vim ~/.zshrc'
 alias vimconfig='vim ~/dotfiles/.vimrc'
 alias subl='open -a "Sublime Text"'
 alias rm=trash
+alias gs=gst
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 alias reload!='. ~/.zshrc'
